@@ -45,9 +45,14 @@ void main() {
           e is Exception && e.toString().contains('-1') && e.toString().contains('-3'))),
     );
   });
-  
+
     test('ignores numbers greater than 1000', () {
     var calc = StringCalculator();
     expect(calc.add('2,1001'), 2);
+  });
+
+    test('supports multi-character delimiter', () {
+    var calc = StringCalculator();
+    expect(calc.add('//[***]\n1***2***3'), 6);
   });
 }
