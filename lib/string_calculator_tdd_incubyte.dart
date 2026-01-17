@@ -14,7 +14,6 @@ class StringCalculator {
 
     var normalized = numString.replaceAll('\n', delimiter);
     var parts = normalized.split(delimiter);
-  // return parts.map((p) => int.parse(p)).fold(0, (a, b) => a + b);
        var nums = parts.map((p) => int.parse(p)).toList();
 
     var negatives = nums.where((n) => n < 0).toList();
@@ -22,6 +21,6 @@ class StringCalculator {
       throw Exception('negative numbers not allowed ${negatives.join(',')}');
     }
 
-    return nums.fold(0, (a, b) => a + b);
+    return nums.where((n) => n <= 1000).fold(0, (a, b) => a + b);
   }
 }
